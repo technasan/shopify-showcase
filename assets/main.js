@@ -1,6 +1,8 @@
 // Список проектов берётся из projects/index.json (порядок = порядок на сайте),
 // данные каждого проекта — из projects/<папка>/project.json.
 const PROJECTS_DIR = 'projects';
+// скриншот считается «длинным», если высота больше ширины в это число раз
+const TALL_RATIO = 1.3;
 
 const grid = document.getElementById('projects');
 const modal = document.getElementById('modal');
@@ -15,6 +17,10 @@ const esc = (s = '') =>
 const tagsHtml = (tags = []) =>
   tags.length ? `<ul class="tags">${tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '';
 
+const domain = (url) => {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
+};
+
 async function loadProjects() {
   try {
     const folders = await fetch(`${PROJECTS_DIR}/index.json`).then((r) => r.json());
@@ -22,8 +28,7 @@ async function loadProjects() {
       folders.map(async (folder) => {
         const data = await fetch(`${PROJECTS_DIR}/${folder}/project.json`).then((r) => r.json());
         const base = `${PROJECTS_DIR}/${folder}/`;
-        data.cover = base + (data.cover || data.images?.[0]?.src);
-        data.images = (data.images || []).map((img) => ({ ...img, src: base + img.src }));
+        data.screenshots = (data.screenshots || []).map((s) => ({ ...s, src: base + s.file }));
         return { folder, ...data };
       })
     );
@@ -35,50 +40,102 @@ async function loadProjects() {
   }
 }
 
+function metaLine(p) {
+  return [p.platform, p.year].filter(Boolean).map(esc).join(' · ');
+}
+
 function cardHtml(p) {
+  const cover = p.screenshots[0];
+  const meta = metaLine(p);
   return `
     <button class="card" data-project="${esc(p.folder)}">
-      <div class="card__img"><img src="${esc(p.cover)}" alt="${esc(p.title)}" loading="lazy"></div>
-      <div class="card__title">${esc(p.title)}</div>
+      <div class="card__img">${cover ? `<img src="${esc(cover.src)}" alt="${esc(p.brand)}" loading="lazy">` : ''}</div>
+      ${meta ? `<div class="card__meta">${meta}</div>` : ''}
+      <div class="card__title">${esc(p.brand)}</div>
       <div class="card__summary">${esc(p.summary)}</div>
-      ${tagsHtml(p.tags)}
+      ${tagsHtml(p.stack)}
     </button>`;
 }
 
 function projectHtml(p) {
-  const meta = [p.client, p.year].filter(Boolean).map(esc).join(' · ');
-  const desc = (Array.isArray(p.description) ? p.description : [p.description || ''])
-    .map((d) => `<p>${esc(d)}</p>`).join('');
+  const meta = metaLine(p);
   const tasks = p.tasks?.length
     ? `<h3>Что сделано</h3><ul class="tasks">${p.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
     : '';
   const link = p.url
-    ? `<a class="project__link" href="${esc(p.url)}" target="_blank" rel="noopener">Открыть сайт →</a>`
+    ? `<a class="project__link" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(domain(p.url) || 'Открыть сайт')} ↗</a>`
     : '';
-  const gallery = p.images.map((img) => `
-    <figure>
-      <img src="${esc(img.src)}" alt="${esc(img.caption || p.title)}" loading="lazy">
-      ${img.caption ? `<figcaption>${esc(img.caption)}</figcaption>` : ''}
-    </figure>`).join('');
+  const tabs = p.screenshots.length > 1
+    ? `<div class="tabs" role="tablist">${p.screenshots.map((s, i) =>
+        `<button class="tab" role="tab" data-shot="${i}" aria-selected="${i === 0}">${esc(s.title || `Скриншот ${i + 1}`)}</button>`
+      ).join('')}</div>`
+    : '';
 
   return `
     <article class="project">
-      <h2>${esc(p.title)}</h2>
-      ${meta ? `<p class="project__meta">${meta}</p>` : ''}
-      ${tagsHtml(p.tags)}
-      <div class="project__desc">${desc}</div>
+      <header class="project__head">
+        ${meta ? `<p class="project__meta">${meta}</p>` : ''}
+        <h2>${esc(p.brand)}</h2>
+        ${p.brandDescription ? `<p class="project__brand">${esc(p.brandDescription)}</p>` : ''}
+      </header>
+      ${p.summary ? `<p class="project__summary">${esc(p.summary)}</p>` : ''}
       ${tasks}
+      ${tagsHtml(p.stack)}
       ${link}
-      <div class="gallery">${gallery}</div>
+      ${p.screenshots.length ? `
+      <div class="viewer">
+        ${tabs}
+        <div class="browser">
+          <div class="browser__bar">
+            <span class="browser__dots"><i></i><i></i><i></i></span>
+            <span class="browser__url">${esc(domain(p.url))}</span>
+            <a class="browser__full" target="_blank" rel="noopener">Полный размер ↗</a>
+          </div>
+          <div class="browser__screen"><img alt=""></div>
+        </div>
+        <p class="viewer__hint">Прокрутите скриншот, чтобы увидеть всю страницу</p>
+      </div>` : ''}
     </article>`;
+}
+
+function showShot(p, i) {
+  const shot = p.screenshots[i];
+  const screen = modalBody.querySelector('.browser__screen');
+  const img = screen.querySelector('img');
+  const viewer = modalBody.querySelector('.viewer');
+  modalBody.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', t.dataset.shot == i));
+  modalBody.querySelector('.browser__full').href = shot.src;
+  viewer.classList.remove('is-tall');
+  img.onload = () => viewer.classList.toggle('is-tall', img.naturalHeight / img.naturalWidth > TALL_RATIO);
+  img.src = shot.src;
+  img.alt = `${p.brand} — ${shot.title || ''}`;
+  screen.scrollTop = 0;
 }
 
 grid.addEventListener('click', (e) => {
   const card = e.target.closest('[data-project]');
   if (!card) return;
-  modalBody.innerHTML = projectHtml(projects[card.dataset.project]);
+  const p = projects[card.dataset.project];
+  modalBody.innerHTML = projectHtml(p);
+  modalBody.dataset.project = p.folder;
+  if (p.screenshots.length) showShot(p, 0);
   modal.showModal();
   modal.scrollTop = 0;
+});
+
+modalBody.addEventListener('click', (e) => {
+  const tab = e.target.closest('.tab');
+  if (tab) showShot(projects[modalBody.dataset.project], +tab.dataset.shot);
+});
+
+// «листание» длинной обложки при наведении: сдвиг = высота картинки − высота окна
+grid.addEventListener('mouseover', (e) => {
+  const box = e.target.closest('.card__img');
+  const img = box?.querySelector('img');
+  if (!img) return;
+  const shift = Math.max(0, img.offsetHeight - box.offsetHeight);
+  img.style.setProperty('--shift', `-${shift}px`);
+  img.style.setProperty('--dur', `${Math.min(8, Math.max(1, shift / 400))}s`);
 });
 
 modal.querySelector('.modal__close').addEventListener('click', () => modal.close());
