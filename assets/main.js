@@ -24,7 +24,7 @@ const domain = (url) => {
 async function loadProjects() {
   try {
     const folders = await fetch(`${PROJECTS_DIR}/index.json`, { cache: 'no-cache' }).then((r) => r.json());
-    const list = await Promise.all(
+    const all = await Promise.all(
       folders.map(async (folder) => {
         const data = await fetch(`${PROJECTS_DIR}/${folder}/project.json`, { cache: 'no-cache' }).then((r) => r.json());
         const base = `${PROJECTS_DIR}/${folder}/`;
@@ -32,6 +32,8 @@ async function loadProjects() {
         return { folder, ...data };
       })
     );
+    // "hidden": true в project.json — проект не показывается на сайте
+    const list = all.filter((p) => !p.hidden);
     grid.innerHTML = list.map(cardHtml).join('');
     list.forEach((p) => (projects[p.folder] = p));
   } catch (e) {
