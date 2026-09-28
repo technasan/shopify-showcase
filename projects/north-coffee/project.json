@@ -1,0 +1,21 @@
+{
+  "title": "North Coffee",
+  "summary": "Обжарщик кофе: подписка и кастомная страница товара",
+  "client": "North Coffee Roasters",
+  "year": 2024,
+  "url": "https://example.com",
+  "tags": ["Liquid", "JavaScript", "Subscriptions", "Klaviyo"],
+  "description": [
+    "Интернет-магазин обжарщика кофе с подпиской на регулярные поставки."
+  ],
+  "tasks": [
+    "Страница подписки с выбором сорта, помола и частоты",
+    "Интеграция с приложением подписок и Klaviyo",
+    "Адаптивная вёрстка по макету из Figma"
+  ],
+  "cover": "home.svg",
+  "images": [
+    { "src": "home.svg", "caption": "Главная страница" },
+    { "src": "subscription.svg", "caption": "Оформление подписки" }
+  ]
+}
