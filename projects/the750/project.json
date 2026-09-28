@@ -1,0 +1,18 @@
+{
+  "brand": "THE 750",
+  "brandDescription": "Британский онлайн-бутик натуральных вин от независимых виноделов с доставкой до двери",
+  "url": "https://the750.uk",
+  "platform": "Shopify",
+  "summary": "Перенесла кастомный дизайн из Figma на Shopify, настроила фильтры каталога и сделала анимации на главной странице.",
+  "stack": ["Shopify", "Liquid", "Shopify CLI", "JavaScript"],
+  "tasks": [
+    "Вёрстка кастомного дизайна из Figma в тему Shopify",
+    "Фильтры и сортировка в каталоге",
+    "Анимации на главной странице"
+  ],
+  "screenshots": [
+    { "file": "home.jpg", "title": "Главная" },
+    { "file": "collection.jpg", "title": "Каталог" },
+    { "file": "product.jpg", "title": "Карточка товара" }
+  ]
+}
