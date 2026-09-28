@@ -14,6 +14,7 @@
   ],
   "screenshots": [
     { "file": "home.jpg", "title": "Главная" },
-    { "file": "collection.webp", "title": "Каталог" }
+    { "file": "collection.webp", "title": "Каталог" },
+    { "file": "product.jpg", "title": "Карточка товара" }
   ]
 }
