@@ -1,0 +1,19 @@
+{
+  "brand": "BLU'S",
+  "brandDescription": "Популярный канадский магазин дизайнерской женской одежды",
+  "url": "https://www.blus.com/",
+  "platform": "Shopify",
+  "role": "Доработки каталога и навигации",
+  "summary": "Доработала каталог магазина и переделала раздел брендов: меню Brands и страницу Brands.",
+  "stack": ["Shopify", "Liquid"],
+  "tasks": [
+    "Доработки каталога",
+    "Новое меню Brands",
+    "Переделка страницы Brands"
+  ],
+  "screenshots": [
+    { "file": "home.jpg", "title": "Главная" },
+    { "file": "menu.jpg", "title": "Меню Brands" },
+    { "file": "brands.jpg", "title": "Страница Brands" }
+  ]
+}
