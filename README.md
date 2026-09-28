@@ -45,15 +45,17 @@ projects/<папка>/
 
 ## Локальный просмотр
 
-Из-за загрузки JSON страницу нельзя открыть двойным кликом — нужен локальный сервер:
+Если открыть `index.html` двойным кликом, проекты не загрузятся: браузер не даёт читать JSON с диска. Нужен локальный сервер. В папке проекта выполнить в терминале:
 
 ```
-python -m http.server 8000
+powershell -ExecutionPolicy Bypass -File serve.ps1
 ```
 
-и открыть http://localhost:8000
+и открыть http://localhost:8000 (остановить — Ctrl+C).
+
+Другой вариант — расширение **Live Server** в VS Code: правый клик по `index.html` → *Open with Live Server*.
 
 ## Публикация
 
-Settings → Pages → Source: *Deploy from a branch*, ветка `main`, папка `/ (root)`.
-Сайт появится по адресу https://technasan.github.io/shopify-showcase/
+Сайт публикуется автоматически после каждого `git push` в `main` (1–2 минуты).
+Адрес: https://technasan.github.io/shopify-showcase/

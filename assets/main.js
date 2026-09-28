@@ -23,10 +23,10 @@ const domain = (url) => {
 
 async function loadProjects() {
   try {
-    const folders = await fetch(`${PROJECTS_DIR}/index.json`).then((r) => r.json());
+    const folders = await fetch(`${PROJECTS_DIR}/index.json`, { cache: 'no-cache' }).then((r) => r.json());
     const list = await Promise.all(
       folders.map(async (folder) => {
-        const data = await fetch(`${PROJECTS_DIR}/${folder}/project.json`).then((r) => r.json());
+        const data = await fetch(`${PROJECTS_DIR}/${folder}/project.json`, { cache: 'no-cache' }).then((r) => r.json());
         const base = `${PROJECTS_DIR}/${folder}/`;
         data.screenshots = (data.screenshots || []).map((s) => ({ ...s, src: base + s.file }));
         return { folder, ...data };
@@ -36,7 +36,9 @@ async function loadProjects() {
     list.forEach((p) => (projects[p.folder] = p));
   } catch (e) {
     console.error(e);
-    grid.innerHTML = '<p class="muted">Не удалось загрузить проекты.</p>';
+    grid.innerHTML = location.protocol === 'file:'
+      ? '<p class="muted">Файл открыт напрямую с диска — браузер не даёт загрузить проекты. Запустите локальный сервер: <code>serve.ps1</code> (см. README).</p>'
+      : '<p class="muted">Не удалось загрузить проекты.</p>';
   }
 }
 
