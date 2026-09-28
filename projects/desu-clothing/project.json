@@ -1,0 +1,14 @@
+{
+  "brand": "DESU CLOTHING",
+  "brandDescription": "Бренд прогрессивной уличной одежды",
+  "year": "2017–2019",
+  "url": "https://desuclothing.com/",
+  "platform": "Shopify",
+  "role": "Настройка магазина и техническая поддержка",
+  "summary": "Запустила магазин бренда на Shopify и два года поддерживала его работу.",
+  "stack": ["Shopify", "Liquid"],
+  "screenshots": [
+    { "file": "home.jpg", "title": "Главная" },
+    { "file": "hero.jpg", "title": "Слайдер на главной" }
+  ]
+}
