@@ -80,6 +80,7 @@ function projectHtml(p) {
         <h2>${esc(p.brand)}</h2>
         ${p.brandDescription ? `<p class="project__brand">${esc(p.brandDescription)}</p>` : ''}
       </header>
+      ${p.role ? `<p class="project__role"><span>Моя роль</span>${esc(p.role)}</p>` : ''}
       ${p.summary ? `<p class="project__summary">${esc(p.summary)}</p>` : ''}
       ${tasks}
       ${tagsHtml(p.stack)}
