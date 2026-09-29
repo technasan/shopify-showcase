@@ -147,13 +147,24 @@ img { display: block; max-width: 100%; }
 
 /* Скриншоты в «окне браузера» */
 .viewer { margin-top: 32px; }
-.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.shot-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 14px; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
 .tab {
-  font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 99px; cursor: pointer;
-  border: 1px solid var(--line); background: none; color: var(--muted);
+  font: inherit; font-size: 14px; font-weight: 500; padding: 7px 16px; border-radius: 99px; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent);
+  transition: background .15s, color .15s;
 }
-.tab:hover { color: var(--text); }
-.tab[aria-selected="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+.tab:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.tab[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.shot-arrow {
+  flex: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: var(--surface); color: var(--accent);
+  transition: background .15s, color .15s;
+}
+.shot-arrow:hover { background: var(--accent); color: var(--bg); }
 
 .browser { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); }
 .browser__bar { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 13px; }

@@ -69,10 +69,18 @@ function projectHtml(p) {
   const link = p.url
     ? `<a class="project__link" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(domain(p.url) || 'Открыть сайт')} ↗</a>`
     : '';
+  const arrow = (dir, label, path) =>
+    `<button class="shot-arrow" data-step="${dir}" aria-label="${label}">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${path}"/></svg>
+    </button>`;
   const tabs = p.screenshots.length > 1
-    ? `<div class="tabs" role="tablist">${p.screenshots.map((s, i) =>
-        `<button class="tab" role="tab" data-shot="${i}" aria-selected="${i === 0}">${esc(s.title || `Скриншот ${i + 1}`)}</button>`
-      ).join('')}</div>`
+    ? `<div class="shot-nav">
+        ${arrow(-1, 'Предыдущий скриншот', 'M15 18l-6-6 6-6')}
+        <div class="tabs" role="tablist">${p.screenshots.map((s, i) =>
+          `<button class="tab" role="tab" data-shot="${i}" aria-selected="${i === 0}">${esc(s.title || `Скриншот ${i + 1}`)}</button>`
+        ).join('')}</div>
+        ${arrow(1, 'Следующий скриншот', 'M9 18l6-6-6-6')}
+      </div>`
     : '';
 
   return `
@@ -108,6 +116,7 @@ function showShot(p, i) {
   const screen = modalBody.querySelector('.browser__screen');
   const img = screen.querySelector('img');
   const viewer = modalBody.querySelector('.viewer');
+  modalBody.dataset.shot = i;
   modalBody.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', t.dataset.shot == i));
   modalBody.querySelector('.browser__full').href = shot.src;
   viewer.classList.remove('is-tall');
@@ -129,8 +138,15 @@ grid.addEventListener('click', (e) => {
 });
 
 modalBody.addEventListener('click', (e) => {
+  const p = projects[modalBody.dataset.project];
   const tab = e.target.closest('.tab');
-  if (tab) showShot(projects[modalBody.dataset.project], +tab.dataset.shot);
+  if (tab) return showShot(p, +tab.dataset.shot);
+  // стрелки листают по кругу
+  const arrow = e.target.closest('.shot-arrow');
+  if (arrow) {
+    const n = p.screenshots.length;
+    showShot(p, (+modalBody.dataset.shot + +arrow.dataset.step + n) % n);
+  }
 });
 
 // «листание» длинной обложки при наведении: сдвиг = высота картинки − высота окна
