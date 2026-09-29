@@ -73,6 +73,11 @@ img { display: block; max-width: 100%; }
 /* Projects */
 .projects { display: grid; gap: 32px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); align-items: start; }
 .card { display: block; width: 100%; text-align: left; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; }
+/* одна колонка (до 695px сетка не вмещает две карточки по 300px): черта между проектами */
+@media (max-width: 695px) {
+  .projects { gap: 28px; }
+  .card + .card { padding-top: 28px; border-top: 1px solid var(--line); }
+}
 .card__img {
   aspect-ratio: 16 / 10; overflow: hidden;
   border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface);
@@ -146,6 +151,8 @@ img { display: block; max-width: 100%; }
 .project__summary { margin-top: 20px; max-width: 680px; font-size: 17px; }
 .project h3 { font-size: 15px; font-weight: 600; margin-top: 20px; }
 .project ul.tasks { margin: 8px 0 0 20px; max-width: 680px; }
+.tasks__group { font-size: 15px; font-weight: 500; color: var(--muted); margin-top: 14px; }
+.tasks__group + ul.tasks { margin-top: 4px; }
 .project .tags { margin-top: 20px; }
 .project__link { display: inline-block; margin-top: 16px; color: var(--accent-ink); font-weight: 500; }
 

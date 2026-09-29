@@ -63,8 +63,14 @@ function cardHtml(p) {
 
 function projectHtml(p) {
   const meta = metaLine(p);
+  // tasks — список строк или групп { "title": "...", "items": [...] }
+  const list = (items) => `<ul class="tasks">${items.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`;
   const tasks = p.tasks?.length
-    ? `<h3>Что сделано</h3><ul class="tasks">${p.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
+    ? `<h3>Что сделано</h3>${p.tasks.every((t) => typeof t === 'string')
+        ? list(p.tasks)
+        : p.tasks.map((g) => typeof g === 'string'
+            ? list([g])
+            : `<h4 class="tasks__group">${esc(g.title)}</h4>${list(g.items || [])}`).join('')}`
     : '';
   const link = p.url
     ? `<a class="project__link" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(domain(p.url) || 'Открыть сайт')} ↗</a>`
@@ -119,6 +125,8 @@ function showShot(p, i) {
   modalBody.dataset.shot = i;
   modalBody.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', t.dataset.shot == i));
   modalBody.querySelector('.browser__full').href = shot.src;
+  // у скриншота может быть свой адрес (например, другой домен того же бренда)
+  modalBody.querySelector('.browser__url').textContent = shot.url || domain(p.url);
   viewer.classList.remove('is-tall');
   img.onload = () => viewer.classList.toggle('is-tall', img.naturalHeight / img.naturalWidth > TALL_RATIO);
   img.src = shot.src;
