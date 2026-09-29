@@ -1,35 +1,65 @@
 {
   "brand": "Madre Kunst Jewelry",
-  "brandDescription": "Ювелирный бренд, чьи украшения основаны на принципах сакральной геометрии",
+  "brandDescription": {
+    "ru": "Ювелирный бренд, чьи украшения основаны на принципах сакральной геометрии",
+    "en": "Jewelry brand whose designs are based on the principles of sacred geometry"
+  },
   "year": "2018–2021",
   "url": "https://madrekunst.com/",
-  "platform": "Shopify · Advantshop",
-  "role": "Разработка и поддержка международного и российского магазинов бренда",
-  "summary": "Три года вела оба интернет-магазина бренда: международный на Shopify и российский на Advantshop — от разработки до поддержки.",
-  "stack": ["Shopify", "Liquid", "Advantshop", "HTML", "CSS", "JavaScript", "МойСклад"],
-  "tasks": [
-    {
-      "title": "Международный сайт madrekunst.com — Shopify",
-      "items": [
-        "Разработка и доработка темы на Liquid",
-        "Техническая поддержка и развитие магазина"
-      ]
-    },
-    {
-      "title": "Российский сайт madrekunst.ru — Advantshop",
-      "items": [
-        "Разработка магазина под ключ: полный цикл от настройки до запуска",
-        "Вёрстка и доработка шаблона на HTML, CSS и JavaScript",
-        "Интеграция с МойСклад",
-        "Подключение платёжных систем",
-        "Техническая поддержка магазина"
-      ]
-    }
-  ],
+  "platform": ["Shopify", "Advantshop"],
+  "role": {
+    "ru": "Разработка и поддержка международного и российского магазинов бренда",
+    "en": "Development and support of the brand's international and Russian stores"
+  },
+  "summary": {
+    "ru": "Три года вела оба интернет-магазина бренда: международный на Shopify и российский на Advantshop — от разработки до поддержки.",
+    "en": "Ran both of the brand's online stores for three years — the international one on Shopify and the Russian one on Advantshop — from development to ongoing support."
+  },
+  "stack": ["Shopify", "Liquid", "Advantshop", "HTML", "CSS", "JavaScript", { "ru": "МойСклад", "en": "MoySklad" }],
+  "tasks": {
+    "ru": [
+      {
+        "title": "Международный сайт madrekunst.com — Shopify",
+        "items": [
+          "Разработка и доработка темы на Liquid",
+          "Техническая поддержка и развитие магазина"
+        ]
+      },
+      {
+        "title": "Российский сайт madrekunst.ru — Advantshop",
+        "items": [
+          "Разработка магазина под ключ: полный цикл от настройки до запуска",
+          "Вёрстка и доработка шаблона на HTML, CSS и JavaScript",
+          "Интеграция с МойСклад",
+          "Подключение платёжных систем",
+          "Техническая поддержка магазина"
+        ]
+      }
+    ],
+    "en": [
+      {
+        "title": "International site madrekunst.com — Shopify",
+        "items": [
+          "Theme development and customization in Liquid",
+          "Technical support and ongoing store improvements"
+        ]
+      },
+      {
+        "title": "Russian site madrekunst.ru — Advantshop",
+        "items": [
+          "End-to-end store development, from setup to launch",
+          "Template development and customization with HTML, CSS and JavaScript",
+          "Integration with MoySklad (inventory management system)",
+          "Payment system integration",
+          "Technical support"
+        ]
+      }
+    ]
+  },
   "screenshots": [
-    { "file": "home.jpg", "title": "Главная" },
-    { "file": "product.jpg", "title": "Карточка товара" },
-    { "file": "editor.jpg", "title": "Редактор темы Shopify" },
-    { "file": "ru-home.jpg", "title": "Российский сайт", "url": "madrekunst.ru" }
+    { "file": "home.jpg", "title": { "ru": "Главная", "en": "Home page" } },
+    { "file": "product.jpg", "title": { "ru": "Карточка товара", "en": "Product page" } },
+    { "file": "editor.jpg", "title": { "ru": "Редактор темы Shopify", "en": "Shopify theme editor" } },
+    { "file": "ru-home.jpg", "title": { "ru": "Российский сайт", "en": "Russian site" }, "url": "madrekunst.ru" }
   ]
 }

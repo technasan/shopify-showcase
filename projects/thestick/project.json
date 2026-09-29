@@ -1,19 +1,35 @@
 {
   "brand": "The Stick Company",
-  "brandDescription": "Бренд аксессуаров для мобильных телефонов",
+  "brandDescription": {
+    "ru": "Бренд аксессуаров для мобильных телефонов",
+    "en": "Mobile phone accessories brand"
+  },
   "year": 2020,
   "platform": "Shopify",
-  "role": "Русская версия магазина: вёрстка, платежи и локализация",
-  "summary": "Запустила русскоязычную версию магазина: сверстала дизайн, подключила оплату и организовала перевод контента с английского.",
+  "role": {
+    "ru": "Русская версия магазина: вёрстка, платежи и локализация",
+    "en": "Russian version of the store: front-end, payments and localization"
+  },
+  "summary": {
+    "ru": "Запустила русскоязычную версию магазина: сверстала дизайн, подключила оплату и организовала перевод контента с английского.",
+    "en": "Launched the Russian-language version of the store: implemented the design, set up payments and managed the translation of content from English."
+  },
   "stack": ["Shopify", "Liquid"],
-  "tasks": [
-    "Вёрстка дизайна русской версии магазина",
-    "Подключение платёжного шлюза Alfa Pay",
-    "Организация перевода контента с английского на русский"
-  ],
+  "tasks": {
+    "ru": [
+      "Вёрстка дизайна русской версии магазина",
+      "Подключение платёжного шлюза Alfa Pay",
+      "Организация перевода контента с английского на русский"
+    ],
+    "en": [
+      "Front-end development of the Russian store design",
+      "Alfa Pay payment gateway integration",
+      "Managed the translation of content from English into Russian"
+    ]
+  },
   "screenshots": [
-    { "file": "home.jpg", "title": "Главная" },
-    { "file": "page.jpg", "title": "Страница «Фото и видео»" },
-    { "file": "editor.jpg", "title": "Редактор темы" }
+    { "file": "home.jpg", "title": { "ru": "Главная", "en": "Home page" } },
+    { "file": "page.jpg", "title": { "ru": "Страница «Фото и видео»", "en": "“Photo & Video” page" } },
+    { "file": "editor.jpg", "title": { "ru": "Редактор темы", "en": "Theme editor" } }
   ]
 }

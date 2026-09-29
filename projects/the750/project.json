@@ -1,21 +1,39 @@
 {
   "brand": "THE 750",
-  "brandDescription": "Британский онлайн-бутик натуральных вин от независимых виноделов с доставкой до двери",
+  "brandDescription": {
+    "ru": "Британский онлайн-бутик натуральных вин от независимых виноделов с доставкой до двери",
+    "en": "UK online boutique of natural wines from independent producers, delivered to your door"
+  },
   "url": "https://the750.uk",
   "platform": "Shopify",
-  "role": "Вся разработка магазина под ключ, дизайн — от клиента (Figma)",
-  "summary": "Разработала магазин на Shopify по готовому дизайну: от вёрстки темы до корзины и приёма платежей.",
+  "role": {
+    "ru": "Вся разработка магазина под ключ, дизайн — от клиента (Figma)",
+    "en": "Full store development; design provided by the client (Figma)"
+  },
+  "summary": {
+    "ru": "Разработала магазин на Shopify по готовому дизайну: от вёрстки темы до корзины и приёма платежей.",
+    "en": "Built the Shopify store from a ready-made design — from theme development to cart and payment setup."
+  },
   "stack": ["Shopify", "Liquid", "Shopify CLI", "JavaScript"],
-  "tasks": [
-    "Вёрстка кастомного дизайна из Figma в тему Shopify",
-    "Анимации на главной странице",
-    "Каталог: фильтры и сортировка",
-    "Настройка корзины и оформления заказа",
-    "Подключение платежей"
-  ],
+  "tasks": {
+    "ru": [
+      "Вёрстка кастомного дизайна из Figma в тему Shopify",
+      "Анимации на главной странице",
+      "Каталог: фильтры и сортировка",
+      "Настройка корзины и оформления заказа",
+      "Подключение платежей"
+    ],
+    "en": [
+      "Turned the custom Figma design into a Shopify theme",
+      "Home page animations",
+      "Collection filters and sorting",
+      "Cart and checkout setup",
+      "Payment integration"
+    ]
+  },
   "screenshots": [
-    { "file": "home.jpg", "title": "Главная" },
-    { "file": "collection.jpg", "title": "Каталог" },
-    { "file": "product.jpg", "title": "Карточка товара" }
+    { "file": "home.jpg", "title": { "ru": "Главная", "en": "Home page" } },
+    { "file": "collection.jpg", "title": { "ru": "Каталог", "en": "Collection" } },
+    { "file": "product.jpg", "title": { "ru": "Карточка товара", "en": "Product page" } }
   ]
 }

@@ -1,19 +1,35 @@
 {
   "brand": "BLU'S",
-  "brandDescription": "Популярный канадский магазин дизайнерской женской одежды",
+  "brandDescription": {
+    "ru": "Популярный канадский магазин дизайнерской женской одежды",
+    "en": "Popular Canadian boutique of designer womenswear"
+  },
   "url": "https://www.blus.com/",
   "platform": "Shopify",
-  "role": "Доработки каталога и навигации",
-  "summary": "Доработала каталог магазина и переделала раздел брендов: меню Brands и страницу Brands.",
+  "role": {
+    "ru": "Доработки каталога и навигации",
+    "en": "Catalog and navigation improvements"
+  },
+  "summary": {
+    "ru": "Доработала каталог магазина и переделала раздел брендов: меню Brands и страницу Brands.",
+    "en": "Improved the store catalog and rebuilt the brands section: the Brands menu and the Brands page."
+  },
   "stack": ["Shopify", "Liquid"],
-  "tasks": [
-    "Доработки каталога",
-    "Новое меню Brands",
-    "Переделка страницы Brands"
-  ],
+  "tasks": {
+    "ru": [
+      "Доработки каталога",
+      "Новое меню Brands",
+      "Переделка страницы Brands"
+    ],
+    "en": [
+      "Catalog improvements",
+      "New Brands menu",
+      "Redesigned Brands page"
+    ]
+  },
   "screenshots": [
-    { "file": "home.jpg", "title": "Главная" },
-    { "file": "menu.jpg", "title": "Меню Brands" },
-    { "file": "brands.jpg", "title": "Страница Brands" }
+    { "file": "home.jpg", "title": { "ru": "Главная", "en": "Home page" } },
+    { "file": "menu.jpg", "title": { "ru": "Меню Brands", "en": "Brands menu" } },
+    { "file": "brands.jpg", "title": { "ru": "Страница Brands", "en": "Brands page" } }
   ]
 }

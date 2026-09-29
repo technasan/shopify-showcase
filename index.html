@@ -3,84 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Наталья Кизева — Shopify-разработчик</title>
-  <meta name="description" content="Портфолио Shopify-разработчика: темы, кастомизация магазинов, интеграции.">
+  <!-- заголовок, описание и все тексты страницы подставляются из content/site.json -->
+  <title>Shopify Developer</title>
+  <meta name="description" content="">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=11">
+  <link rel="stylesheet" href="assets/style.css?v=12">
 </head>
 <body>
   <header class="header">
     <div class="container header__inner">
-      <a href="#top" class="logo">Наталья Кизева <span class="logo__handle">@technasan</span></a>
+      <a href="#top" class="logo"><span data-i18n="person.name"></span> <span class="logo__handle" data-i18n="person.handle"></span></a>
       <nav class="nav">
-        <a href="#work">Работы</a>
-        <a href="#services">Услуги</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#work" data-i18n="nav.work"></a>
+        <a href="#services" data-i18n="nav.services"></a>
+        <a href="#contacts" data-i18n="nav.contacts"></a>
       </nav>
+      <div id="lang" class="lang" role="group"></div>
     </div>
   </header>
 
   <main id="top">
     <section class="hero container">
-      <p class="eyebrow">Shopify-разработчик</p>
-      <h1>Создаю и дорабатываю интернет-магазины на Shopify — аккуратно, быстро и с вниманием к деталям.</h1>
+      <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+      <h1 data-i18n="hero.title"></h1>
     </section>
 
     <section id="work" class="section container">
-      <h2 class="section__title">Работы</h2>
-      <div id="projects" class="projects">
-        <p class="muted">Загрузка…</p>
-      </div>
+      <h2 class="section__title" data-i18n="nav.work"></h2>
+      <div id="projects" class="projects"></div>
     </section>
 
     <section id="services" class="section container">
-      <h2 class="section__title">Услуги</h2>
-      <div class="services">
-        <div class="service">
-          <h3>Магазин под ключ</h3>
-          <p>Настройка магазина, выбор и адаптация темы, товары, оплата, доставка, запуск.</p>
-        </div>
-        <div class="service">
-          <h3>Кастомизация темы</h3>
-          <p>Новые секции и блоки на Liquid, правки дизайна, адаптивная вёрстка под макет.</p>
-        </div>
-        <div class="service">
-          <h3>Приложения и интеграции</h3>
-          <p>Подбор и настройка приложений, подключение внешних сервисов, метаполя.</p>
-        </div>
-        <div class="service">
-          <h3>Скорость и поддержка</h3>
-          <p>Ускорение загрузки, исправление ошибок, регулярная поддержка магазина.</p>
-        </div>
-      </div>
+      <h2 class="section__title" data-i18n="nav.services"></h2>
+      <div id="services-list" class="services"></div>
     </section>
 
     <section id="contacts" class="section container">
-      <h2 class="section__title">Контакты</h2>
-      <p class="contacts__lead">Расскажите о проекте — отвечу в течение дня.</p>
-      <ul class="contacts">
-        <li><span>Email</span><a href="mailto:technasan@gmail.com">technasan@gmail.com</a></li>
-        <li><span>Telegram</span><a href="https://t.me/technasan" target="_blank" rel="noopener">@technasan</a></li>
-        <li><span>GitHub</span><a href="https://github.com/technasan" target="_blank" rel="noopener">github.com/technasan</a></li>
-      </ul>
+      <h2 class="section__title" data-i18n="nav.contacts"></h2>
+      <p class="contacts__lead" data-i18n="contacts.lead"></p>
+      <ul id="contacts-list" class="contacts"></ul>
     </section>
   </main>
 
   <footer class="footer container">
-    <p>© <span id="year"></span> Наталья Кизева</p>
+    <p>© <span id="year"></span> <span data-i18n="person.name"></span></p>
   </footer>
 
-  <button id="to-top" class="to-top" aria-label="Наверх">
+  <button id="to-top" class="to-top">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
   <dialog id="modal" class="modal">
-    <button class="modal__close" aria-label="Закрыть">&times;</button>
+    <button class="modal__close">&times;</button>
     <div id="modal-body"></div>
   </dialog>
 
-  <script src="assets/main.js?v=11"></script>
+  <script src="assets/main.js?v=12"></script>
 </body>
 </html>

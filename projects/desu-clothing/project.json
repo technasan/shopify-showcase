@@ -1,14 +1,23 @@
 {
   "brand": "DESU CLOTHING",
-  "brandDescription": "Бренд прогрессивной уличной одежды",
+  "brandDescription": {
+    "ru": "Бренд прогрессивной уличной одежды",
+    "en": "Progressive streetwear brand"
+  },
   "year": "2017–2019",
   "url": "https://desuclothing.com/",
   "platform": "Shopify",
-  "role": "Настройка магазина и техническая поддержка",
-  "summary": "Запустила магазин бренда на Shopify и два года поддерживала его работу.",
+  "role": {
+    "ru": "Настройка магазина и техническая поддержка",
+    "en": "Store setup and technical support"
+  },
+  "summary": {
+    "ru": "Запустила магазин бренда на Shopify и два года поддерживала его работу.",
+    "en": "Launched the brand's Shopify store and supported it for two years."
+  },
   "stack": ["Shopify", "Liquid"],
   "screenshots": [
-    { "file": "home.jpg", "title": "Главная" },
-    { "file": "hero.jpg", "title": "Слайдер на главной" }
+    { "file": "home.jpg", "title": { "ru": "Главная", "en": "Home page" } },
+    { "file": "hero.jpg", "title": { "ru": "Слайдер на главной", "en": "Home page slider" } }
   ]
 }

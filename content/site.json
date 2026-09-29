@@ -1,0 +1,114 @@
+{
+  "languages": [
+    { "code": "ru", "label": "RU", "flag": "ru" },
+    { "code": "en", "label": "EN", "flag": "gb" }
+  ],
+  "defaultLanguage": "ru",
+  "detectBrowserLanguage": false,
+
+  "projectsDir": "projects",
+  "projects": [
+    "theflow",
+    "the750",
+    "blus",
+    "madrekunst",
+    "thestick",
+    "desu-clothing"
+  ],
+
+  "person": {
+    "name": { "ru": "Наталья Кизева", "en": "Natalia Kizeva" },
+    "handle": "@technasan"
+  },
+
+  "meta": {
+    "title": {
+      "ru": "Наталья Кизева — Shopify-разработчик",
+      "en": "Natalia Kizeva — Shopify Developer"
+    },
+    "description": {
+      "ru": "Портфолио Shopify-разработчика: темы, кастомизация магазинов, интеграции.",
+      "en": "Shopify developer portfolio: themes, store customization, integrations."
+    }
+  },
+
+  "nav": {
+    "work": { "ru": "Работы", "en": "Work" },
+    "services": { "ru": "Услуги", "en": "Services" },
+    "contacts": { "ru": "Контакты", "en": "Contact" }
+  },
+
+  "hero": {
+    "eyebrow": { "ru": "Shopify-разработчик", "en": "Shopify Developer" },
+    "title": {
+      "ru": "Создаю и дорабатываю интернет-магазины на Shopify — аккуратно, быстро и с вниманием к деталям.",
+      "en": "I build and refine Shopify stores — carefully, quickly and with attention to detail."
+    }
+  },
+
+  "services": [
+    {
+      "title": { "ru": "Магазин под ключ", "en": "Turnkey store" },
+      "text": {
+        "ru": "Настройка магазина, выбор и адаптация темы, товары, оплата, доставка, запуск.",
+        "en": "Store setup, theme selection and customization, products, payments, shipping and launch."
+      }
+    },
+    {
+      "title": { "ru": "Кастомизация темы", "en": "Theme customization" },
+      "text": {
+        "ru": "Новые секции и блоки на Liquid, правки дизайна, адаптивная вёрстка под макет.",
+        "en": "New Liquid sections and blocks, design tweaks, responsive layouts built from mockups."
+      }
+    },
+    {
+      "title": { "ru": "Приложения и интеграции", "en": "Apps and integrations" },
+      "text": {
+        "ru": "Подбор и настройка приложений, подключение внешних сервисов, метаполя.",
+        "en": "Choosing and configuring apps, connecting third-party services, metafields."
+      }
+    },
+    {
+      "title": { "ru": "Скорость и поддержка", "en": "Speed and support" },
+      "text": {
+        "ru": "Ускорение загрузки, исправление ошибок, регулярная поддержка магазина.",
+        "en": "Faster load times, bug fixes and ongoing store maintenance."
+      }
+    }
+  ],
+
+  "contacts": {
+    "lead": {
+      "ru": "Расскажите о проекте — отвечу в течение дня.",
+      "en": "Tell me about your project — I'll get back to you within a day."
+    },
+    "items": [
+      { "label": "Email", "text": "technasan@gmail.com", "href": "mailto:technasan@gmail.com" },
+      { "label": "Telegram", "text": "@technasan", "href": "https://t.me/technasan" },
+      { "label": "GitHub", "text": "github.com/technasan", "href": "https://github.com/technasan" }
+    ]
+  },
+
+  "ui": {
+    "loading": { "ru": "Загрузка…", "en": "Loading…" },
+    "loadError": { "ru": "Не удалось загрузить проекты.", "en": "Couldn't load projects." },
+    "fileError": {
+      "ru": "Файл открыт напрямую с диска — браузер не даёт загрузить данные. Запустите локальный сервер: serve.ps1 (см. README).",
+      "en": "The page is opened directly from disk, so the browser blocks loading data. Start a local server: serve.ps1 (see README)."
+    },
+    "role": { "ru": "Моя роль", "en": "My role" },
+    "tasks": { "ru": "Что сделано", "en": "What I did" },
+    "openSite": { "ru": "Открыть сайт", "en": "Visit site" },
+    "fullSize": { "ru": "Полный размер", "en": "Full size" },
+    "scrollHint": {
+      "ru": "Прокрутите скриншот, чтобы увидеть всю страницу",
+      "en": "Scroll the screenshot to see the whole page"
+    },
+    "screenshot": { "ru": "Скриншот", "en": "Screenshot" },
+    "prev": { "ru": "Предыдущий скриншот", "en": "Previous screenshot" },
+    "next": { "ru": "Следующий скриншот", "en": "Next screenshot" },
+    "close": { "ru": "Закрыть", "en": "Close" },
+    "toTop": { "ru": "Наверх", "en": "Back to top" },
+    "language": { "ru": "Язык", "en": "Language" }
+  }
+}

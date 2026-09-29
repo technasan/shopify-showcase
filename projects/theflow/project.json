@@ -1,20 +1,36 @@
 {
   "brand": "The Flow Jewelry",
-  "brandDescription": "Серебряные украшения ручной работы, созданные фридайверами на острове Нуса-Пенида и вдохновлённые океаном",
+  "brandDescription": {
+    "ru": "Серебряные украшения ручной работы, созданные фридайверами на острове Нуса-Пенида и вдохновлённые океаном",
+    "en": "Handmade silver jewelry inspired by the ocean, created by freedivers on the island of Nusa Penida"
+  },
   "year": 2024,
   "url": "https://theflowjewelry.com/",
   "platform": "Shopify",
-  "role": "Разработка магазина под ключ и консультации клиента",
-  "summary": "Разработала магазин на Shopify: от выбора темы и консультаций по запуску до доработки темы Minimog под задачи бренда.",
+  "role": {
+    "ru": "Разработка магазина под ключ и консультации клиента",
+    "en": "End-to-end store development and client consulting"
+  },
+  "summary": {
+    "ru": "Разработала магазин на Shopify: от выбора темы и консультаций по запуску до доработки темы Minimog под задачи бренда.",
+    "en": "Built the Shopify store — from theme selection and launch consulting to customizing the Minimog theme for the brand's needs."
+  },
   "stack": ["Shopify", "Liquid", "Minimog"],
-  "tasks": [
-    "Консультации клиента по запуску и настройке магазина",
-    "Подбор темы под задачи бренда",
-    "Доработка темы Minimog под нужды клиента"
-  ],
+  "tasks": {
+    "ru": [
+      "Консультации клиента по запуску и настройке магазина",
+      "Подбор темы под задачи бренда",
+      "Доработка темы Minimog под нужды клиента"
+    ],
+    "en": [
+      "Consulted the client on store launch and setup",
+      "Selected a theme to fit the brand's goals",
+      "Customized the Minimog theme to the client's requirements"
+    ]
+  },
   "screenshots": [
-    { "file": "home.jpg", "title": "Главная" },
-    { "file": "collection.webp", "title": "Каталог" },
-    { "file": "product.jpg", "title": "Карточка товара" }
+    { "file": "home.jpg", "title": { "ru": "Главная", "en": "Home page" } },
+    { "file": "collection.webp", "title": { "ru": "Каталог", "en": "Collection" } },
+    { "file": "product.jpg", "title": { "ru": "Карточка товара", "en": "Product page" } }
   ]
 }
