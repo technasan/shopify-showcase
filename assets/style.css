@@ -1,12 +1,12 @@
 :root {
-  --bg: #fafaf8;
+  --bg: #FFFFFF;
   --surface: #ffffff;
-  --text: #1a1a1a;
+  --text: #000000;
   --muted: #6b6b6b;
   --line: #e6e6e1;
   --accent: #95BF47;      /* Shopify green — заливки и обводки */
-  --accent-ink: #4A7324;  /* тот же зелёный темнее — для текста */
-  --on-accent: #1a1a1a;   /* текст поверх заливки --accent */
+  --accent-ink: #5E8E3E;  /* Shopify dark green — для текста */
+  --on-accent: #000000;   /* текст поверх заливки --accent */
   --radius: 12px;
   color-scheme: light;
 }
